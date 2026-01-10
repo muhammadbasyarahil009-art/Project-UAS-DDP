@@ -1,0 +1,131 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="bg-light py-5 mb-5 text-center">
+    <div class="container">
+        <h1 class="fw-bold display-5">Tentang Material Jaya</h1>
+        <p class="text-muted lead">Mitra Terpercaya Membangun Hunian Impian Anda</p>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-10 text-center">
+            <h2 class="fw-bold text-primary mb-4">Siapa Kami?</h2>
+            
+            <p class="lead text-secondary mb-4" style="font-size: 1.2rem;">
+                Material Jaya adalah pusat penyedia bahan bangunan terlengkap yang telah melayani ribuan pelanggan sejak tahun 2023.
+            </p>
+            
+            <p class="mb-4" style="line-height: 1.8;">
+                Kami mengerti bahwa membangun rumah bukan sekadar menyusun bata, tapi membangun masa depan. 
+                Oleh karena itu, kami berkomitmen penuh untuk hanya menyediakan barang berkualitas <strong>SNI</strong> dengan harga yang <strong>jujur</strong> dan <strong>bersaing</strong> di pasaran.
+            </p>
+
+            <div class="d-inline-block text-start bg-light p-4 rounded-4 shadow-sm mt-3">
+                <p class="mb-2 fs-5"><i class="bi bi-check-circle-fill text-success me-3"></i> Pengiriman Cepat & Aman</p>
+                <p class="mb-2 fs-5"><i class="bi bi-check-circle-fill text-success me-3"></i> Garansi Kualitas Produk</p>
+                <p class="mb-0 fs-5"><i class="bi bi-check-circle-fill text-success me-3"></i> Stok Selalu Update Real-time</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 text-center mt-5 border-top pt-5">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm py-4 hover-effect">
+                <div class="card-body">
+                    <div class="display-4 text-primary mb-3"><i class="bi bi-eye"></i></div>
+                    <h4 class="card-title fw-bold">Visi</h4>
+                    <p class="card-text text-muted">Menjadi toko material nomor 1 yang paling diandalkan oleh kontraktor dan pemilik rumah.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm py-4 hover-effect">
+                <div class="card-body">
+                    <div class="display-4 text-primary mb-3"><i class="bi bi-bullseye"></i></div>
+                    <h4 class="card-title fw-bold">Misi</h4>
+                    <p class="card-text text-muted">Memberikan pelayanan ramah, pengiriman tepat waktu, dan harga transparan.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm py-4 hover-effect">
+                <div class="card-body">
+                    <div class="display-4 text-primary mb-3"><i class="bi bi-whatsapp"></i></div>
+                    <h4 class="card-title fw-bold">Layanan</h4>
+                    <p class="card-text text-muted">Konsultasi gratis via WhatsApp untuk menghitung kebutuhan bahan bangunan Anda.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 pt-5 border-top">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-primary">Tim Kelompok Kami</h2>
+            <p class="text-muted">Website ini dibuat untuk memenuhi tugas oleh:</p>
+        </div>
+
+        <div class="row row-cols-2 row-cols-md-5 g-4 justify-content-center">
+            
+            <div class="col">
+                <div class="card border-0 text-center">
+                    <img src="{% static 'images/anggota1.jpg' %}" 
+                         class="rounded-circle shadow-sm mx-auto d-block mb-3" 
+                         style="width: 120px; height: 120px; object-fit: cover;" 
+                         alt="Anggota 1">
+                    <h6 class="fw-bold mb-0">Muhammad Basyarahil</h6>
+                    <small class="text-muted" style="font-size: 0.8rem;">NIM: 0110225023</small>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-0 text-center">
+                    <img src="{% static 'images/anggota-2.jpeg' %}" 
+                         class="rounded-circle shadow-sm mx-auto d-block mb-3" 
+                         style="width: 120px; height: 120px; object-fit: cover;" 
+                         alt="Anggota 2">
+                    <h6 class="fw-bold mb-0">Harist Achmad Qital</h6>
+                    <small class="text-muted" style="font-size: 0.8rem;">NIM: 0110225152</small>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-0 text-center">
+                    <img src="{% static 'images/anggota3.jpeg' %}" 
+                         class="rounded-circle shadow-sm mx-auto d-block mb-3" 
+                         style="width: 120px; height: 120px; object-fit: cover;" 
+                         alt="Anggota 3">
+                    <h6 class="fw-bold mb-0">Lu'lu' Nur Jihan</h6>
+                    <small class="text-muted" style="font-size: 0.8rem;">NIM: 0110225065</small>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-0 text-center">
+                    <img src="{% static 'images/anggota4.jpeg' %}" 
+                         class="rounded-circle shadow-sm mx-auto d-block mb-3" 
+                         style="width: 120px; height: 120px; object-fit: cover;" 
+                         alt="Anggota 4">
+                    <h6 class="fw-bold mb-0">Aliifah Khusnul Khotimah</h6>
+                    <small class="text-muted" style="font-size: 0.8rem;">NIM: 0110225155</small>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-0 text-center">
+                    <img src="{% static 'images/anggota-5.jpeg' %}" 
+                         class="rounded-circle shadow-sm mx-auto d-block mb-3" 
+                         style="width: 120px; height: 120px; object-fit: cover;" 
+                         alt="Anggota 5">
+                    <h6 class="fw-bold mb-0">Trisa Dhiya Nasywa</h6>
+                    <small class="text-muted" style="font-size: 0.8rem;">NIM: 0110225049</small>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</div> 
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            
+            <div class="card border-0 shadow-sm rounded-4 mb-5">
+                <div class="card-header bg-primary text-white text-center py-3 rounded-top-4">
+                    <h4 class="mb-0 fw-bold">Form Gaji Pegawai</h4>
+                </div>
+                <div class="card-body p-4">
+                    
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Nama Karyawan</label>
+                            <input type="text" name="nama" class="form-control" placeholder="Masukkan nama" required value="{{ nama|default:'' }}">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Jabatan</label>
+                                <select class="form-select" name="jabatan" required>
+                                    <option selected disabled value="">-- Pilih Jabatan --</option>
+                                    <option value="Manager" {% if jabatan == 'Manager' %}selected{% endif %}>Manager</option>
+                                    <option value="Asisten Manager" {% if jabatan == 'Asisten Manager' %}selected{% endif %}>Asisten Manager</option>
+                                    <option value="Supervisor" {% if jabatan == 'Supervisor' %}selected{% endif %}>Supervisor</option>
+                                    <option value="Staff Gudang" {% if jabatan == 'Staff Gudang' %}selected{% endif %}>Staff Gudang</option>
+                                    <option value="Administrasi" {% if jabatan == 'Administrasi' %}selected{% endif %}>Administrasi</option>
+                                    <option value="Kasir" {% if jabatan == 'Kasir' %}selected{% endif %}>Kasir</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-bold">Agama</label>
+                                <select class="form-select" name="agama" required>
+                                    <option selected disabled value="">-- Pilih Agama --</option>
+                                    <option value="Islam" {% if agama == 'Islam' %}selected{% endif %}>Islam</option>
+                                    <option value="Kristen" {% if agama == 'Kristen' %}selected{% endif %}>Kristen</option>
+                                    <option value="Katolik" {% if agama == 'Katolik' %}selected{% endif %}>Katolik</option>
+                                    <option value="Hindu" {% if agama == 'Hindu' %}selected{% endif %}>Hindu</option>
+                                    <option value="Buddha" {% if agama == 'Buddha' %}selected{% endif %}>Buddha</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-bold d-block">Status Pernikahan</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="status" id="menikah" value="Menikah" required {% if status == 'Menikah' %}checked{% endif %}>
+                                <label class="form-check-label" for="menikah">Menikah</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="status" id="single" value="Belum Menikah" {% if status == 'Belum Menikah' %}checked{% endif %}>
+                                <label class="form-check-label" for="single">Belum Menikah</label>
+                            </div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg text-white shadow-sm">
+                                <i class="bi bi-calculator-fill me-2"></i>Hitung Gaji Sekarang
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            {% if hasil %}
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden animate__animated animate__fadeInUp">
+                <div class="card-header bg-success text-white text-center py-3">
+                    <h5 class="mb-0 fw-bold"><i class="bi bi-cash-coin me-2"></i>Slip Gaji: {{ nama }}</h5>
+                </div>
+                <div class="card-body p-0">
+                    <table class="table table-striped table-hover mb-0">
+                        <tbody>
+                            <tr>
+                                <td class="ps-4 py-3">Jabatan</td>
+                                <td class="text-end pe-4 fw-bold">{{ jabatan }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 py-3">Gaji Pokok</td>
+                                <td class="text-end pe-4">Rp {{ gaji_pokok }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 py-3">Status</td>
+                                <td class="text-end pe-4">{{ status }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 py-3 text-primary">Tunjangan Keluarga</td>
+                                <td class="text-end pe-4 text-primary fw-bold">+ Rp {{ tunjangan }}</td>
+                            </tr>
+                            <tr class="table-light">
+                                <td class="ps-4 py-3 fw-bold">Gaji Kotor</td>
+                                <td class="text-end pe-4 fw-bold">Rp {{ gaji_kotor }}</td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 py-3 text-danger">Potongan Zakat ({{ agama }})</td>
+                                <td class="text-end pe-4 text-danger fw-bold">- Rp {{ zakat }}</td>
+                            </tr>
+                            <tr class="bg-primary text-white">
+                                <td class="ps-4 py-4 fs-5 fw-bold">GAJI BERSIH (Take Home Pay)</td>
+                                <td class="text-end pe-4 fs-4 fw-bold">Rp {{ gaji_bersih }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer bg-light text-center p-3">
+                    <a href="/employee/" class="btn btn-outline-secondary btn-sm">Reset Form</a>
+                    <button class="btn btn-success btn-sm ms-2" onclick="window.print()"><i class="bi bi-printer me-1"></i> Cetak Slip</button>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

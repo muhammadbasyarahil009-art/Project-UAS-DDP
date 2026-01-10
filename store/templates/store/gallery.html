@@ -1,0 +1,47 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5 text-center">
+    <h1 class="fw-bold mb-3">Galeri Aktivitas</h1>
+    <p class="text-muted" style="max-width: 600px; margin: 0 auto;">
+        Intip kesibukan kami di gudang, proses pengiriman, dan proyek-proyek yang menggunakan material dari Material Jaya.
+    </p>
+</div>
+
+<div class="container mb-5">
+    <div class="row g-4">
+        
+        <div class="col-md-4 col-sm-6">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=400" 
+                     class="card-img-top" style="height: 250px; object-fit: cover;" alt="Gudang">
+                <div class="card-body text-center bg-light">
+                    <h6 class="fw-bold mb-0">Stok Gudang Melimpah</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
+                <img src="{% static 'images/pelangan-ramah.png' %}" 
+                     class="card-img-top" style="height: 250px; object-fit: cover;" alt="Pelayanan">
+                <div class="card-body text-center bg-light">
+                    <h6 class="fw-bold mb-0">Pelayanan Ramah</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="card border-0 shadow-sm h-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=400" 
+                     class="card-img-top" style="height: 250px; object-fit: cover;" alt="Proyek">
+                <div class="card-body text-center bg-light">
+                    <h6 class="fw-bold mb-0">Proyek Pelanggan</h6>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

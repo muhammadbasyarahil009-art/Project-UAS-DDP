@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Material Pro System</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
+    <style>
+      body { background-color: #f0f2f5; font-family: sans-serif; }
+      
+      /* --- CSS TOMBOL WA --- */
+      .btn-wa-float {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+        
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+        transition: transform 0.3s;
+      }
+      
+      .btn-wa-float:hover {
+        transform: scale(1.1);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="/"><i class="bi bi-box-seam-fill me-2"></i>MATERIAL JAYA</a>
+        <div class="ms-auto">
+            <a class="nav-link text-white btn btn-sm btn-outline-light px-3" href="/admin">Admin Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top shadow-sm">
+  <div class="container">
+    
+    <a class="navbar-brand fw-bold" href="/">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      
+      <ul class="navbar-nav ms-auto align-items-center">
+        
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/about/">About Us</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/employee/">Employee Salary</a>
+        </li>
+
+        <li class="nav-item">
+           <a class="nav-link text-white" href="/gallery/">Gallery</a>
+        </li>
+
+        <li class="nav-item mx-2 text-white-50 d-none d-lg-block">
+            |
+        </li>
+
+        <li class="nav-item">
+          {% if user.is_authenticated %}
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle text-white fw-bold" href="#" role="button" data-bs-toggle="dropdown">
+                    Halo, {{ user.username }}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="/admin/">Dashboard Admin</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger" href="/admin/logout/">Logout</a></li>
+                </ul>
+            </div>
+          {% else %}
+            <a class="nav-link text-white fw-bold" href="/admin/">
+                <i class="bi bi-person-circle me-1"></i> Admin Login
+            </a>
+          {% endif %}
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+    <div class="container mt-4 mb-5">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+   <a href="https://api.whatsapp.com/send?phone=6285716174881&text=Halo%20Admin,%20saya%20tertarik%20dengan%20produk%20material..." 
+      class="btn btn-success btn-wa-float" 
+      target="_blank">
+        <i class="bi bi-whatsapp"></i>
+</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
