@@ -40,7 +40,6 @@ def employee(request):
 def employee(request):
     context = {}
 
-    # Cek apakah Pengunjung baru saja menekan tombol "Hitung Gaji" (POST request)
     if request.method == 'POST':
         # 1. Ambil data dari form HTML
         nama = request.POST.get('nama')
@@ -73,7 +72,7 @@ def employee(request):
 
         # 5. Hitung Zakat (Jika Islam, potong 2.5%)
         zakat = 0
-        if agama == 'Islam' and gaji_kotor >= 0: # Pastikan gaji positif
+        if agama == 'Islam' and gaji_kotor >= 0:
             zakat = gaji_kotor * 0.025 # 2.5 persen
         
         # 6. Hitung Gaji Bersih (Take Home Pay)
@@ -81,7 +80,7 @@ def employee(request):
 
         # 7. Bungkus data untuk dikirim balik ke HTML
         context = {
-            'hasil': True, # Penanda bahwa perhitungan selesai
+            'hasil': True,
             'nama': nama,
             'jabatan': jabatan,
             'agama': agama,
